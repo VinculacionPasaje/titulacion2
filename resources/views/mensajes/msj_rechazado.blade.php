@@ -1,0 +1,1 @@
+<br/><div class='rechazado'><label style='color:#FA206A'>  {{ session('mensaje-registro2') }}</label>  </div> 
