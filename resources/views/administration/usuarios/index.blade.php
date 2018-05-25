@@ -35,6 +35,7 @@
                             <thead>
                                 <tr>
                                     <th>DNI</th>
+                                    <th>Titulo</th>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
                                     <th>Dirección</th>
@@ -48,6 +49,7 @@
                                     <tr data-id="{{$usuario->id}}">
                                     
                                         <td>{{$usuario->dni}}</td>
+                                        <td>{{$usuario->abreviatura}}</td>
                                         <td>{{$usuario->name}}</td>
                                         <td>{{$usuario->last_name}}</td>
                                         <td>{{$usuario->address}}</td>

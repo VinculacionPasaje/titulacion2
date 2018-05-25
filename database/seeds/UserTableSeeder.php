@@ -14,6 +14,7 @@ class UserTableSeeder extends Seeder
     {
         User::create([
             'dni'=>'0706829116',
+            'abreviatura'=>'Ing.',
             'name'=>'Super',
             'last_name'=>'Admin',
             'email'=> 'jfnando_cas_30_@hotmail.com',

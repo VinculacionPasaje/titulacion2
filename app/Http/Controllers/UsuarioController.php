@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Redirect;
 
+
 use App\User;
 use App\Http\Requests\UsuarioRequest;
 use Illuminate\Validation\Rule;
@@ -54,6 +55,7 @@ class UsuarioController extends Controller
        
         User::create([
             'dni' => $request['dni'],
+            'abreviatura' => $request['abreviatura'],
             'name' => $request['name'],
             'last_name' => $request['last_name'],
             'address' => $request['address'],
@@ -120,6 +122,7 @@ class UsuarioController extends Controller
         $usuario = User::find($id);
         $this->validate($request, [
                          'dni'   => [ 'required', 'max:255' ],
+                          'abreviatura'   => [ 'required', 'max:255' ],
                         'name'   => [ 'required', 'max:255' ],
                         'last_name' => [ 'required', 'max:255' ],  
                         'address' => [ 'required', 'max:255' ],  
@@ -134,10 +137,12 @@ class UsuarioController extends Controller
 
                  $usuario->fill([
                     'dni' => $request['dni'],
+                     'abreviatura' => $request['abreviatura'],
                     'name' => $request['name'],
                     'address' => $request['address'],
                     'last_name' => $request['last_name'],
                     'email' => $request['email'],
+                    'rol_id'=>$request['rol_id'],
                    
                 ]);
 
@@ -145,11 +150,13 @@ class UsuarioController extends Controller
             $usuario->fill([ 
 
                     'dni' => $request['dni'],
+                   'abreviatura' => $request['abreviatura'],
                     'name' => $request['name'],
                     'address' => $request['address'],
                     'last_name' => $request['last_name'],
                     'email' => $request['email'],
                     'password' => bcrypt($request['password']),
+                    'rol_id'=>$request['rol_id'],
                 ]);
                 
             }

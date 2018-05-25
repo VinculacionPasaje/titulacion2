@@ -54,7 +54,7 @@
         <header id="header">
             <!--logo start-->
             <div class="brand">
-                <a href="{{url ('user/perfil')}}" class="logo"><span>Cinema </span>TV</a>
+                <a href="{{url ('administracion')}}" class="logo"><span>Cinema </span>TV</a>
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
@@ -109,7 +109,7 @@
             <div id="leftside-navigation" class="nano">
                 <ul class="nano-content">
                     <li class="active">
-                        <a href="#"><i class="fa fa-dashboard"></i><span>INICIO</span></a>
+                        <a href="{{url ('administracion')}}"><i class="fa fa-dashboard"></i><span>INICIO</span></a>
                     </li>
 
                     <li class="sub-menu">
@@ -127,6 +127,51 @@
                              <li><a href="{{route('usuarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
                               <li><a href="{{route('usuarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                        </ul>
+                    </li>
+
+                     <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>SEMESTRES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                             <li><a href="{{route('semestres.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                       
+                              <li><a href="{{route('semestres.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>SALON CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                             <li><a href="{{route('salones.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                       
+                              <li><a href="{{route('salones.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                             <li><a href="{{route('asignaturas.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                       
+                              <li><a href="{{route('asignaturas.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>AÑOS LECTIVO</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                             <li><a href="{{route('anios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                       
+                              <li><a href="{{route('anios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>CALENDARIO CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                             <li><a href="{{route('calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                       
+                              <li><a href="{{route('calendarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 

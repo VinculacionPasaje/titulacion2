@@ -37,5 +37,10 @@
 
         Route::resource('administracion/roles','RolController');
         Route::resource('administracion/usuarios','UsuarioController');
+        Route::resource('administracion/semestres','SemestreController');
+        Route::resource('administracion/salones','SalonController');
+        Route::resource('administracion/asignaturas','AsignaturaController');
+        Route::resource('administracion/anios','AnioController');
+         Route::resource('administracion/calendarios','CalendarioController');
 
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "75ba431fb4ccf48ce8a358d938bb8d86",
+    "content-hash": "d5d5a9745da1a05bff6bd0b822b9e83c",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1909,6 +1909,107 @@
                 "dump"
             ],
             "time": "2018-02-22T17:29:24+00:00"
+        },
+        {
+            "name": "tavo1987/ec-validador-cedula-ruc",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tavo1987/ec-validador-cedula-ruc.git",
+                "reference": "f4875561af5c8b5752e85f3b462cef5ec1be652c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tavo1987/ec-validador-cedula-ruc/zipball/f4875561af5c8b5752e85f3b462cef5ec1be652c",
+                "reference": "f4875561af5c8b5752e85f3b462cef5ec1be652c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tavo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Edwin Ramírez",
+                    "email": "tavo198718@gmail.com",
+                    "homepage": "https://www.facebook.com/edwin.ramirez.923",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Bryan Suárez",
+                    "email": "bryanbolivar.1992@gmail.com"
+                }
+            ],
+            "description": "Validador de RUC y cédula en Ecuador",
+            "homepage": "https://github.com/tavo1987/ec-validador-cedula-ruc",
+            "time": "2017-05-30T01:15:22+00:00"
+        },
+        {
+            "name": "tavo1987/laravel-ec-validator",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tavo1987/ec-laravel-validator.git",
+                "reference": "83b051f509e4509d5765617389fc3ab95088ff40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tavo1987/ec-laravel-validator/zipball/83b051f509e4509d5765617389fc3ab95088ff40",
+                "reference": "83b051f509e4509d5765617389fc3ab95088ff40",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.4",
+                "illuminate/validation": "^5.4",
+                "php": ">=5.4.0",
+                "tavo1987/ec-validador-cedula-ruc": "^1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tavo\\EcLaravelValidator\\EcValidatorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tavo\\EcLaravelValidator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tavo1987",
+                    "email": "tavo198718@gmail.com"
+                }
+            ],
+            "description": "Package to validate ruc and ci ecuador",
+            "keywords": [
+                "cedula",
+                "ecuador",
+                "laravel"
+            ],
+            "time": "2017-06-02T22:47:12+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

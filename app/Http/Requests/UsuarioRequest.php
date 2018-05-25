@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class UsuarioRequest extends FormRequest
 {
       /**
@@ -23,7 +24,7 @@ class UsuarioRequest extends FormRequest
  public function rules()
  {
      return [
-         'dni' => 'required|max:10|unique:users',
+         'dni' => 'required|max:10|ecuador:ci|unique:users',
          'name' => 'required|max:255',
          'last_name' => 'required|max:255',
          'address' => 'required|max:255',

@@ -63,10 +63,17 @@
 
 
        <div class="row" ><!--Inicio de row -->
-                 <div class="col-md-12 col-xs-12">
+                 <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             {!! Form::label('Correo') !!}
                             {!! Form::email('email',old('email'),['placeholder'=>'Ingrese el correo','class'=>'form-control']) !!}
+                        </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            {!! Form::label('Abreviatura Título') !!}
+                            {!! Form::text('abreviatura',null,['placeholder'=>'Ingrese la abreviatura del título','class'=>'form-control']) !!}
                         </div>
                 </div>
            

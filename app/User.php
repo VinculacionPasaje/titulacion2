@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id','dni', 'name','last_name', 'email', 'password', 'address', 'state', 'rol_id'
+        'id','dni','abreviatura','name','last_name', 'email', 'password', 'address', 'state', 'rol_id'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -32,5 +32,10 @@ class User extends Authenticatable
     public function rol(){
         return $this->belongsTo(Rol::class,'rol_id','id');
     }
+
+      public function asignatura(){
+        return $this->hasMany(Asignatura::class);
+    }
+
 
 }

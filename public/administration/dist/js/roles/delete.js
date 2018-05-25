@@ -22,7 +22,7 @@ $(document).ready(function () {
         var url = form.attr('action').replace(':USER_ID', id);
         var data = form.serialize();
         swal({
-                title: "Deseas dar de baja este rol?",
+                title: "Deseas dar de baja este registro?",
                 text: "Se excluira del sistema!",
                 type: "warning",
                 showCancelButton: true,
@@ -36,9 +36,9 @@ $(document).ready(function () {
                 if (isConfirm) {
                     row.fadeOut();//para borrar la fila
                     $.post(url, data, function (result) {
-                        swal("Rol dado de baja!", result.message, "success");
+                        swal("Registro dado de baja!", result.message, "success");
                     }).fail(function () {
-                        swal("Error!! Rol no fue dado de baja!");
+                        swal("Error!! Registro no fue dado de baja!");
                         row.show('slow');
                     });
 
