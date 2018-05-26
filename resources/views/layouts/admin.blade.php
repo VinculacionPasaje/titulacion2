@@ -32,10 +32,11 @@
 
     <!-- ToDos  -->
     <link rel="stylesheet" href="{{url('administration/plugins/todo/css/todos.css')}}">
+     <link rel="stylesheet" href="{{url('administration/plugins/todo/css/todos.css')}}">
 
     <!-- Morris  -->
 
-    <link rel="stylesheet" href="{{url('administration/plugins/morris/css/morris.css')}}">
+    <link rel="stylesheet" href="{{url('administration/plugins/time/jquery.timepicker.min.css')}}">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -175,6 +176,15 @@
                         </ul>
                     </li>
 
+                       <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>AGREGAR ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                             <li><a href="{{route('asignaturas_calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                       
+                              <li><a href="{{route('asignaturas_calendarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                        </ul>
+                    </li>
+
                      
                     
 
@@ -202,10 +212,9 @@
     <script src="{{url('administration/js/application.js')}}"></script>
 
         <script src="{{url('administration/plugins/daterangepicker/daterangepicker.js')}}"></script>
-    <script src="{{url('administration/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
-    <script src="{{url('administration/plugins/timepicker/bootstrap-timepicker.js')}}"></script>
+    <script src="{{url('administration/plugins/time/jquery.timepicker.min.js')}}"></script>
+
     <script src="{{url('administration/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
-    <script src="{{url('administration/plugins/chartjs/Chart.min.js')}}"></script>
     <script src="{{url('administration/dist/js/sweetalert.min.js')}}"></script>
     <script src="{{url('administration/dist/js/jquery.inputmask.js')}}"></script>
     <script src="{{url('administration/dist/js/jquery.inputmask.date.extensions.js')}}"></script>
@@ -226,6 +235,25 @@
             });
         });
         </script>
+
+        <script>
+        $(function () {
+
+           $('.timepicker').timepicker({
+                timeFormat: 'HH:mm',
+                interval: 60,
+                minTime: '07:00',
+                maxTime: '13:00',
+                defaultTime: '07:00',
+                startTime: '07:00',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true,
+                show2400: true
+            });
+        });
+        </script>
+
 
     <script type="text/javascript">
         $(document).ready(function() {

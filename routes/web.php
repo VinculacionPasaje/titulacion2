@@ -42,5 +42,6 @@
         Route::resource('administracion/asignaturas','AsignaturaController');
         Route::resource('administracion/anios','AnioController');
          Route::resource('administracion/calendarios','CalendarioController');
+          Route::resource('administracion/asignaturas_calendarios','AsignaturaCalendarioController');
 
 

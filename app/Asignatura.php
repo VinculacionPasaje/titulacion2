@@ -27,4 +27,8 @@ class Asignatura extends Model
     return $this->belongsTo(Semestre::class,'semestre_id','id');
     }
 
+     public function asignatura_calendario(){
+        return $this->hasMany(AsignaturaCalendario::class);
+    }
+
 }

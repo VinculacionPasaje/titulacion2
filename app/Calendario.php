@@ -14,6 +14,7 @@ class Calendario extends Model
         'titulo',
         'descripcion',
         'hemisemestres',
+        'tamanio',
         'state',
         'anio_id',
         'salon_id',
@@ -26,5 +27,9 @@ class Calendario extends Model
     
     public function salon(){
     return $this->belongsTo(Salon::class,'salon_id','id');
+    }
+
+     public function asignatura_calendario(){
+        return $this->hasMany(AsignaturaCalendario::class);
     }
 }
