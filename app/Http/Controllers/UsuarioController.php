@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use App\User;
 use App\Http\Requests\UsuarioRequest;
+use App\Http\Requests\UsuarioEditRequest;
 use Illuminate\Validation\Rule;
 
 
@@ -121,7 +122,7 @@ class UsuarioController extends Controller
         $password = $data['password'];
         $usuario = User::find($id);
         $this->validate($request, [
-                         'dni'   => [ 'required', 'max:255' ],
+                         'dni'   => [ 'required', 'max:10', Rule::unique('users')->ignore($usuario->id), ],
                           'abreviatura'   => [ 'required', 'max:255' ],
                         'name'   => [ 'required', 'max:255' ],
                         'last_name' => [ 'required', 'max:255' ],  

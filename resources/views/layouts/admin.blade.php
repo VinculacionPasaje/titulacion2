@@ -240,12 +240,11 @@
         $(function () {
 
            $('.timepicker').timepicker({
-                timeFormat: 'HH:mm',
+                timeFormat: 'HH:mm:ss',
                 interval: 60,
                 minTime: '07:00',
                 maxTime: '13:00',
-                defaultTime: '07:00',
-                startTime: '07:00',
+              
                 dynamic: false,
                 dropdown: true,
                 scrollbar: true,
