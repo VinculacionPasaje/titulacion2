@@ -86,7 +86,7 @@
     {!! Form::close() !!}
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/usuarios/java-usuarios.js')}}"></script>
+    <script src="{{url('administration/dist/js/usuarios/java-usuario.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {

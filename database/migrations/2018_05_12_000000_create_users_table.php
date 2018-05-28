@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('address',500);
             $table->char('state',1)->default(1);
+            $table->binary('registro_uno')->nullable();
+            $table->binary('registro_dos')->nullable();
             $table->integer('rol_id')->unsigned();
             $table->foreign('rol_id')
                 ->references('id')->on('roles')->onDelete('cascade');

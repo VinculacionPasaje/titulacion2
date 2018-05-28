@@ -27,4 +27,9 @@ class AsignaturaCalendario extends Model
     public function asignatura(){
     return $this->belongsTo(Asignatura::class,'asignatura_id','id');
     }
+
+      public function asistencia(){
+        return $this->hasMany(Asistencia::class);
+    }
+
 }
