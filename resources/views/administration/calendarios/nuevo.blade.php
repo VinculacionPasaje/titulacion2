@@ -27,7 +27,7 @@
             <h3 class="box-title">Llene las siguientes opciones:</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!! Form::open(['route' => 'asignaturas_calendarios.store','method'=>'POST']) !!}
+            {!! Form::open(['route' => ['calendarioAgregar.store', $calendario->id],'method'=>'POST']) !!}
                 <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
                        
 
@@ -63,20 +63,12 @@
                                     </div>
                             </div>
 
-                                    <div class="col-md-4 col-xs-12">
+                                       <div class="col-md-4 col-xs-12">
 
-                                            <div class="form-group">
-                                                <label>Calendario</label>
-                                                <select class="form-control select2" name="calendario_id" id="calendario_id" style="width: 100%;" >
-                                                    <option value="" disabled selected>Seleccione el calendario</option>
-                                                    @foreach($calendarios as $calendario)
-                                                        <option value="{{$calendario->id}}" >  {{ $calendario->titulo }} </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-
-                                        
+                                        <div class="form-group">
+                                                {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
+                                        </div>
+                                    
                                     </div>
 
                                    
@@ -106,13 +98,7 @@
                                     
                                     </div>
 
-                                         <div class="col-md-4 col-xs-12">
-
-                                        <div class="form-group">
-                                                {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
-                                        </div>
-                                    
-                                    </div>
+                                      
 
 
 

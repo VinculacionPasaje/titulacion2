@@ -1,12 +1,8 @@
 @extends('layouts.admin')
 @section('title')
     <section class="content-header">
-        <h1>Roles<small>Agregar</small></h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
-            <li class="active">Roles</li>
-            <li class="active">Agregar</li>
-        </ol>
+        <h1>Roles</h1>
+       
     </section>
 @endsection
 @section('contenido')

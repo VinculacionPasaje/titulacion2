@@ -59,7 +59,7 @@
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
-                <button type="button" class="btn btn-default" id="toggle-left" data-toggle="tooltip" data-placement="right" title="Toggle Navigation">
+                <button type="button" class="btn btn-default" id="toggle-left" data-toggle="tooltip" data-placement="right" title="Menú">
                     <i class="fa fa-bars"></i>
                 </button>
             </div>
@@ -74,15 +74,7 @@
                        {!! Auth::user()->name.' '.Auth::user()->last_name !!} <i class="fa fa-angle-down"></i>
                     </a>
                         <ul class="dropdown-menu animated fadeInDown">
-                            <li>
-                                <a href="#"><i class="fa fa-user"></i> Profile</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-danager" id="user-inbox">5</span></a>
-                            </li>
+                           
                             <li>
 
                               <a href="{{ route('logout') }}"
@@ -114,7 +106,7 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>ROLES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-users"></i><span>ROLES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('roles.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
@@ -123,7 +115,7 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>USUARIOS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-user"></i><span>USUARIOS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('usuarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
@@ -132,7 +124,7 @@
                     </li>
 
                      <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>SEMESTRES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>SEMESTRES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('semestres.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
@@ -141,7 +133,7 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>SALON CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-briefcase"></i><span>SALON CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('salones.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
@@ -150,7 +142,7 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('asignaturas.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
@@ -159,7 +151,7 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>AÑOS LECTIVO</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-clock-o"></i><span>AÑOS LECTIVO</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('anios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
@@ -168,7 +160,7 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>CALENDARIO CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-calendar"></i><span>CALENDARIO CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
@@ -177,7 +169,7 @@
                     </li>
 
                        <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>AGREGAR ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>AGREGAR ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('asignaturas_calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        

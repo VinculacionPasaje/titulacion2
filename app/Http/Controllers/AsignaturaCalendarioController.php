@@ -20,7 +20,7 @@ class AsignaturaCalendarioController extends Controller
       public function index(Request $request){
        
 
-         $asignaturas_calendarios = AsignaturaCalendario::where('state',1)->orderBy('id')->paginate(6);
+         $asignaturas_calendarios = AsignaturaCalendario::where('state',1)->orderBy('dia_semana')->paginate(6);
 
           return view('administration.asignaturas_calendarios.index',compact('asignaturas_calendarios'));
 
@@ -42,13 +42,16 @@ class AsignaturaCalendarioController extends Controller
         $dia_de_la_semana= $request['dia_semana'];
         $calendario_id= $request['calendario_id'];
 
+        $asignatura_id= $request['asignatura_id'];
+
          $id_calendario= $request['calendario_id'];
          $calendario = Calendario::find($id_calendario);
          
          $bandera=false;
+         $materia_repetida=false;
 
          
-         $horario_repetido= AsignaturaCalendario::where('dia_semana',$dia_de_la_semana)->where('calendario_id',$calendario_id)->where('state',1)->get();
+        $horario_repetido= AsignaturaCalendario::where('dia_semana',$dia_de_la_semana)->where('calendario_id',$calendario_id)->where('state',1)->get();
         if($hora_inicio==$hora_fin){
             return Redirect::to('administracion/asignaturas_calendarios/create')->with('mensaje-error', 'La hora de inicio no puede ser el mismo que la hora final, por favor escoga un horario válido');
 
@@ -57,14 +60,28 @@ class AsignaturaCalendarioController extends Controller
 
       
         foreach($horario_repetido as $item){
-            if($hora_inicio>=(int)$item->hora_inicio && $hora_inicio < (int)$item->hora_fin  ){
-                $bandera=true;
+            if($item->asignatura_id==$asignatura_id ){ //materia repetida en el mismo dia y calendario
+                 $materia_repetida=true;
+            
 
+            }else{
+                 if($hora_inicio>=(int)$item->hora_inicio && $hora_inicio < (int)$item->hora_fin  ){
+                        $bandera=true;
+
+
+                    }
 
             }
+           
 
         }
-         if($bandera){
+        if($materia_repetida){
+            return Redirect::to('administracion/asignaturas_calendarios/create')->with('mensaje-error', 'La asignatura seleccionada ya se encuentra registrada en el mismo Día y Calendario, por favor seleccione otra asignatura');
+
+
+        }else{
+
+             if($bandera){
 
              return Redirect::to('administracion/asignaturas_calendarios/create')->with('mensaje-error', 'Ya se encuentra un registro dentro del mismo Horario, Calendario y Día de Semana, por favor seleccione otro horario');
 
@@ -77,7 +94,7 @@ class AsignaturaCalendarioController extends Controller
             return Redirect::to('administracion/asignaturas_calendarios')->with('mensaje-error', 'Este Calendario ya esta lleno');
 
 
-        }else{
+             }else{
 
              if($calendario->tamanio<$hora){
                  return Redirect::to('administracion/asignaturas_calendarios/create')->with('mensaje-error', 'Horas insuficientes');
@@ -122,6 +139,10 @@ class AsignaturaCalendarioController extends Controller
 
              
          }
+
+
+        }
+        
 
            }
       

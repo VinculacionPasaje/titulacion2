@@ -2,11 +2,7 @@
 @section('title')
     <section class="content-header">
         <h1>Año Lectivo<small>Agregar</small></h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
-            <li class="active">Año Lectivo</li>
-            <li class="active">Agregar</li>
-        </ol>
+      
     </section>
 @endsection
 @section('contenido')

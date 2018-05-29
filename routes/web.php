@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Calendario;
 
      Route::get('/', 'FrontendController@index');
 
@@ -41,7 +42,20 @@
         Route::resource('administracion/salones','SalonController');
         Route::resource('administracion/asignaturas','AsignaturaController');
         Route::resource('administracion/anios','AnioController');
-         Route::resource('administracion/calendarios','CalendarioController');
-          Route::resource('administracion/asignaturas_calendarios','AsignaturaCalendarioController');
+        Route::resource('administracion/calendarios','CalendarioController');
+        Route::resource('administracion/asignaturas_calendarios','AsignaturaCalendarioController');
+        Route::get('administracion/calendario/{id}', 'CalendarioDetalleController@calendario');
+        Route::get('administracion/calendarioAgregar/{id}', 'CalendarioDetalleController@nuevo_calendario');
+        //comentarios Alimentacion
+         Route::post('administracion/calendarioAgregar/{id}', ['uses' => 'CalendarioDetalleController@store', 'as'=> 'calendarioAgregar.store']);
+
+
+        Route::delete('administracion/calendarioEliminar/{id}', function ($id) {
+
+            $calendarios = Calendario::find($id);
+            $calendarios->state = 0;
+            $calendarios->save();
+            return redirect('administracion/calendarios');
+            });
 
 

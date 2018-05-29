@@ -3,13 +3,9 @@
     <section class="content-header">
         <h1>
             ROLES
-            <small>Editar</small>
+           
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">ROLES</li>
-            <li class="active">Editar</li>
-        </ol>
+      
     </section>
 @endsection
 
