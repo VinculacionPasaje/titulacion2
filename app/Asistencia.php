@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Asistencia extends Model
 {
-        protected $table ='asignatura_calendario';
+        protected $table ='asistencia';
     protected $primaryKey='id';
     public $timestamps = false;
     protected $fillable=[
@@ -14,6 +14,7 @@ class Asistencia extends Model
         'firma',
         'fecha',
         'hora',
+        'justificacion',
         'state',
         'detalle_calendario_id',
     

@@ -9,11 +9,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home Usuario</title>
+    <title>Asistencia UTMACH</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{url('frontend/images/ico/ico.ico')}}">
+    <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{url('administration/plugins/bootstrap/css/bootstrap.min.css')}}">
 
@@ -33,6 +33,7 @@
     <!-- ToDos  -->
     <link rel="stylesheet" href="{{url('administration/plugins/todo/css/todos.css')}}">
      <link rel="stylesheet" href="{{url('administration/plugins/todo/css/todos.css')}}">
+         <link rel="stylesheet" href="{{url('administration/plugins/datepicker/datepicker3.css')}}">
 
     <!-- Morris  -->
 
@@ -55,7 +56,7 @@
         <header id="header">
             <!--logo start-->
             <div class="brand">
-                <a href="{{url ('administracion')}}" class="logo"><span>Cinema </span>TV</a>
+                <a href="{{url ('administracion')}}" class="logo"><span>Administración</span></a>
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
@@ -168,12 +169,30 @@
                         </ul>
                     </li>
 
-                       <li class="sub-menu">
+                    <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-book"></i><span>AGREGAR ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                              <li><a href="{{route('asignaturas_calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
                               <li><a href="{{route('asignaturas_calendarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>ASISTENCIAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                             <li><a href="{{route('asistencias.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                       
+                            
+                        </ul>
+                    </li>
+
+                     <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>REPORTES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                             <li><a href="#"><i class="fa fa-list-ul"></i>Listado</a></li>
+                       
+                              <li><a href="#"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
@@ -205,6 +224,7 @@
 
         <script src="{{url('administration/plugins/daterangepicker/daterangepicker.js')}}"></script>
     <script src="{{url('administration/plugins/time/jquery.timepicker.min.js')}}"></script>
+      <script src="{{url('administration/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
 
     <script src="{{url('administration/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
     <script src="{{url('administration/dist/js/sweetalert.min.js')}}"></script>

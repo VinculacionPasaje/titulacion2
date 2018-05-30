@@ -18,6 +18,7 @@ class Asistencia extends Migration
             $table->string('firma',500);
             $table->date('fecha');
             $table->time('hora');
+            $table->char('justificacion', 1)->nullable(); //Si es 1 si justificó, si es 0 no justifico y si es 2 significa que asistió
             $table->char('state',1)->default(1);
             $table->integer('detalle_calendario_id')->unsigned();
             $table->foreign('detalle_calendario_id')->references('id')->on('asignatura_calendario')->onDelete('cascade');

@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{url('frontend/images/ico/ico.ico')}}">
+    <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{url('administration/plugins/bootstrap/css/bootstrap.min.css')}}">
     <!-- Fonts from Font Awsome -->

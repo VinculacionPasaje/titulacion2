@@ -36,6 +36,10 @@ use App\Calendario;
             Route::get('administracion','FrontendController@admin');
         });
 
+        Route::group(['middleware' => 'guest'], function () {
+            Route::get('/','FrontendController@index');
+        });
+
         Route::resource('administracion/roles','RolController');
         Route::resource('administracion/usuarios','UsuarioController');
         Route::resource('administracion/semestres','SemestreController');
@@ -43,11 +47,12 @@ use App\Calendario;
         Route::resource('administracion/asignaturas','AsignaturaController');
         Route::resource('administracion/anios','AnioController');
         Route::resource('administracion/calendarios','CalendarioController');
+        Route::resource('administracion/asistencias','AsistenciaController');
         Route::resource('administracion/asignaturas_calendarios','AsignaturaCalendarioController');
         Route::get('administracion/calendario/{id}', 'CalendarioDetalleController@calendario');
         Route::get('administracion/calendarioAgregar/{id}', 'CalendarioDetalleController@nuevo_calendario');
         //comentarios Alimentacion
-         Route::post('administracion/calendarioAgregar/{id}', ['uses' => 'CalendarioDetalleController@store', 'as'=> 'calendarioAgregar.store']);
+        Route::post('administracion/calendarioAgregar/{id}', ['uses' => 'CalendarioDetalleController@store', 'as'=> 'calendarioAgregar.store']);
 
 
         Route::delete('administracion/calendarioEliminar/{id}', function ($id) {

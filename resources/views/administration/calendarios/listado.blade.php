@@ -60,8 +60,8 @@
                                           <td>{{$calendario->asignatura->asignatura}}</td>
                                          <td>{{$calendario->hora_inicio}}</td>
                                           <td>{{$calendario->hora_fin}}</td>
-                                          <td>{{$calendario->asignatura->usuario->name}}</td>
-                                           <td>{{$calendario->asignatura->semestre->semestre}}</td>
+                                          <td>{{$calendario->asignatura->usuario->abreviatura .' '. $calendario->asignatura->usuario->name .' '. $calendario->asignatura->usuario->last_name }}</td>
+                                           <td>{{$calendario->asignatura->semestre->semestre .' '. $calendario->asignatura->semestre->paralelo}}</td>
                                         <td>{{$calendario->calendario->titulo}}</td>
                                       
                                         

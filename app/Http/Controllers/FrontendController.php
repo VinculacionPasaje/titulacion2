@@ -13,12 +13,7 @@ class FrontendController extends Controller
        return view('auth.login');
    }
 
-    public function home(){
-         
-     
-     
-       return view('home');
-   }
+   
 
    public function admin(){
     

@@ -126,7 +126,7 @@
 
                                                                  <div class="col-md-6">
 
-                                                                        <button type="submit" class="btn  btn-primary btn-md"  style="width: 100%;"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
+                                                                        <button type="submit" class="btn  btn-danger btn-md"  style="width: 100%;"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
 
                                                                 </div> 
                                                             </div>

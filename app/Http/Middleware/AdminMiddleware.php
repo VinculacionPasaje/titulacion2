@@ -17,9 +17,11 @@ class AdminMiddleware
     {
         if (auth()->check() && auth()->user()->rol_id==1){
           
+          
             return $next($request);
 
         }else{
+            
            
              return redirect('/');
 
