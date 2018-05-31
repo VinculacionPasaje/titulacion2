@@ -51,6 +51,8 @@ use App\Calendario;
         Route::resource('administracion/asignaturas_calendarios','AsignaturaCalendarioController');
         Route::get('administracion/calendario/{id}', 'CalendarioDetalleController@calendario');
         Route::get('administracion/calendarioAgregar/{id}', 'CalendarioDetalleController@nuevo_calendario');
+        Route::resource('administracion/reportes', 'ReporteController');
+        Route::get('administracion/generar_reporte', 'ReporteController@pdf')->name('asistencia.pdf');
         //comentarios Alimentacion
         Route::post('administracion/calendarioAgregar/{id}', ['uses' => 'CalendarioDetalleController@store', 'as'=> 'calendarioAgregar.store']);
 

@@ -190,9 +190,8 @@
                      <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-book"></i><span>REPORTES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="#"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('reportes.index')}}"><i class="fa fa-list-ul"></i>Generar Reporte</a></li>
                        
-                              <li><a href="#"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
