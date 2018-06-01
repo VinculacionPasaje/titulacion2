@@ -56,7 +56,7 @@
         <header id="header">
             <!--logo start-->
             <div class="brand">
-                <a href="{{url ('administracion')}}" class="logo"><span>Administración</span></a>
+                <a href="{{url ('administracion')}}" class="logo"><span>Docente</span></a>
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
@@ -72,7 +72,7 @@
                     </li>
                     <li class="dropdown settings">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                       Bienvenido  {!! Auth::user()->abreviatura.' '. Auth::user()->name.' '.Auth::user()->last_name !!} <i class="fa fa-angle-down"></i>
+                      Bienvenido  {!! Auth::user()->abreviatura.' '. Auth::user()->name.' '.Auth::user()->last_name !!} <i class="fa fa-angle-down"></i>
                     </a>
                         <ul class="dropdown-menu animated fadeInDown">
                            
@@ -103,97 +103,37 @@
             <div id="leftside-navigation" class="nano">
                 <ul class="nano-content">
                     <li class="active">
-                        <a href="{{url ('administracion')}}"><i class="fa fa-dashboard"></i><span>INICIO</span></a>
+                        <a href="{{url ('docente')}}"><i class="fa fa-dashboard"></i><span>INICIO</span></a>
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-users"></i><span>ROLES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-users"></i><span>MI PERFIL</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('roles.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('docente.mi_perfil')}}"><i class="fa fa-list-ul"></i>Ver perfil</a></li>
                        
-                              <li><a href="{{route('roles.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              
                         </ul>
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-user"></i><span>USUARIOS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-calendar"></i><span>CALENDARIO</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('usuarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('docente.materias')}}"><i class="fa fa-list-ul"></i>Ver Calendario</a></li>
                        
-                              <li><a href="{{route('usuarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              
                         </ul>
                     </li>
 
                      <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>SEMESTRES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>ASISTENCIAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('semestres.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('docente.asistencias')}}"><i class="fa fa-list-ul"></i>Ver asistencias</a></li>
                        
-                              <li><a href="{{route('semestres.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                             
                         </ul>
                     </li>
 
-                    <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-briefcase"></i><span>SALON CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                        <ul>
-                             <li><a href="{{route('salones.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
-                       
-                              <li><a href="{{route('salones.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                        <ul>
-                             <li><a href="{{route('asignaturas.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
-                       
-                              <li><a href="{{route('asignaturas.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-clock-o"></i><span>AÑOS LECTIVO</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                        <ul>
-                             <li><a href="{{route('anios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
-                       
-                              <li><a href="{{route('anios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-calendar"></i><span>CALENDARIO CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                        <ul>
-                             <li><a href="{{route('calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
-                       
-                              <li><a href="{{route('calendarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>AGREGAR ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                        <ul>
-                             <li><a href="{{route('asignaturas_calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
-                       
-                              <li><a href="{{route('asignaturas_calendarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>ASISTENCIAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                        <ul>
-                             <li><a href="{{route('asistencias.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
-                       
-                            
-                        </ul>
-                    </li>
-
-                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>REPORTES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                        <ul>
-                             <li><a href="{{route('reportes.index')}}"><i class="fa fa-list-ul"></i>Generar Reporte</a></li>
-                       
-                        </ul>
-                    </li>
+                    
 
                      
                     

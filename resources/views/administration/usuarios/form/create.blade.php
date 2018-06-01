@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <div class="form-group">
-                        {!! Form::label('Dirección') !!}
+                        {!! Form::label('Dirección Domiciliaria') !!}
                         {!! Form::text('address',null,['placeholder'=>'Ingrese su dirección','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
                     </div>
                 </div>

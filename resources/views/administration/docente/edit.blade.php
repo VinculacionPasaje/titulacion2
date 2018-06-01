@@ -1,11 +1,16 @@
-@extends('layouts.admin')
+@extends('layouts.docente')
 @section('title')
     <section class="content-header">
-        <h1>Usuarios</h1>
-        
+        <h1>
+          Editar Usuario
+     
+        </h1>
+       
     </section>
 @endsection
+
 @section('contenido')
+
     @if (session('mensaje-registro'))
         @include('mensajes.msj_correcto')
     @endif
@@ -24,7 +29,7 @@
             <h3 class="box-title">Editar Datos Usuario</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-            {{Form::model($usuario, ['route' => ['usuarios.update',$usuario->id],'method'=>'PUT','files' => true ])}}
+            {{Form::model($usuario, ['route' => ['editarPerfil.update',$usuario->id],'method'=>'PUT','files' => true ])}}
             <div id="msj-success" class="alert alert-success alert-dismissible aprobado" role="alert" style="display:none">
                 <strong> Usuario Modificado Correctamente.</strong>
             </div>
@@ -63,26 +68,8 @@
             </div>
 
 
-               <div class="row" ><!--Inicio de row -->
-                  <div class="col-md-6 col-xs-12">
-
-
-                       <label>Roles</label>
-                    <select class="form-control" name="rol_id" id="roles" style="width: 100%;" >
-                        <option value="" disabled selected>Seleccione el rol</option>
-
-                            @foreach($roles as $rol)
-                                    @if($rol->id == $usuario->rol->id)
-                                        <option value="{{$rol->id}}" selected>  {{ $rol->rol }} </option>
-                                    @else
-                                        <option value="{{$rol->id}}">  {{ $rol->rol }} </option>
-                                    @endif
-                                @endforeach
-                    </select>
-
-
-
-                </div>
+            <div class="row" ><!--Inicio de row -->
+                  
                 <div class="col-md-6 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('Contraseña') !!}
@@ -90,10 +77,17 @@
                     </div>
                 </div>
 
+                <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            {!! Form::label('Abreviatura Título') !!}
+                            {!! Form::text('abreviatura',null,['placeholder'=>'Ingrese la abreviatura del título','class'=>'form-control']) !!}
+                        </div>
+                </div>
+
             </div>
 
 
-             <div class="row" ><!--Inicio de row -->
+            <div class="row" ><!--Inicio de row -->
                  <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             {!! Form::label('Correo') !!}
@@ -101,25 +95,33 @@
                         </div>
                 </div>
 
-                   <div class="col-md-6 col-xs-12">
+                 <div class="col-md-6 col-xs-12">
                         <div class="form-group">
-                            {!! Form::label('Abreviatura Título') !!}
-                            {!! Form::text('abreviatura',null,['placeholder'=>'Ingrese la abreviatura del título','class'=>'form-control']) !!}
+                           {!! Form::submit('Actualizar',['class'=>'btn btn-primary']) !!}
                         </div>
                 </div>
-           
+
+                   
             </div>
+           
+     
             
 
            
-            {!! Form::submit('Actualizar',['class'=>'btn btn-primary']) !!}
+            
             {!! Form::close() !!}
         </div>
     </div>
+
+
+
+
+    
+
 @endsection
 @section('script')
-    
-    <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
+
+ <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {
@@ -127,5 +129,5 @@
             },3000);
         });
     </script>
-    
+
 @endsection

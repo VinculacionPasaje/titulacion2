@@ -1,21 +1,18 @@
-@extends('layouts.admin')
+@extends('layouts.docente')
 @section('title')
     <section class="content-header">
         <h1>
-            Listado
-    
+          Perfil Usuario
+     
         </h1>
+       
     </section>
 @endsection
 
 @section('contenido')
-    @if (session('mensaje-registro'))
-        @include('mensajes.msj_correcto')
-    @endif
-     @if (session('mensaje-error'))
-        @include('mensajes.msj_rechazado')
-    @endif
-    <div class="row">
+
+
+<div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
@@ -40,12 +37,12 @@
                                     <th>ID</th>
                                     <th>Dia Semana</th>
                                     <th>Asignatura</th>
-                                    <th>Semestre</th>
+                                     <th>Semestre</th>
                                     <th>Horario</th>
                                     
-                                    <th>Laboratorio/Aula Clase</th>
+                                    <th>Laboratorio / Aula Clase</th>
                                     
-                                    <th>Acción</th>
+                                  
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -55,16 +52,13 @@
                                         <td class="sorting_1">{{$calendario->id}}</td>
                                         <td>{{$calendario->dia_semana}}</td>
                                           <td>{{$calendario->asignatura->asignatura}}</td>
-                                           <td>{{$calendario->asignatura->semestre->semestre}} {{$calendario->asignatura->semestre->paralelo}}</td>
-                                           <td>{{$calendario->hora_inicio}} - {{$calendario->hora_fin}}</td>
-                                        <td>{{$calendario->calendario->salon->salon_clase}}</td>
+                                          <td>{{$calendario->asignatura->semestre->semestre}} {{$calendario->asignatura->semestre->paralelo}}</td>
+                                         <td>{{$calendario->hora_inicio}} - {{$calendario->hora_fin}}</td>
+                                        
+                                         <td>{{$calendario->calendario->salon->salon_clase}}</td>
                                       
                                         
-                                        <td>
-                                            {!!link_to_route('asignaturas_calendarios.edit', $title = 'Editar', $parameters = $calendario->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
-                                            <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
-
-                                        </td>
+                                      
 
                                     </tr>
                                     @endif
@@ -82,22 +76,15 @@
             </div>
             <!-- /.box -->
         </div>
-    </div>
+</div>
+  
 
-    {!! Form::open(['route' => ['asignaturas_calendarios.destroy', ':USER_ID'], 'method' => 'DELETE', 'id' => 'form-delete']) !!}
-    {!! Form::close() !!}
 
     
+
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/roles/delete.js')}}"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            setTimeout(function() {
-                $(".aprobado").fadeOut(300);
-            },3000);
-        });
-    </script>
 
-      
+
 @endsection
+

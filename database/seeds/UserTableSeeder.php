@@ -24,6 +24,19 @@ class UserTableSeeder extends Seeder
 
 
         ]);
+
+        User::create([
+            'dni'=>'0701489577',
+            'abreviatura'=>'Ing.',
+            'name'=>'Jimmy',
+            'last_name'=>'Castillo',
+            'email'=> 'jfnando@hotmail.com',
+            'password'=> bcrypt('123456'),
+            'address'=> 'Gonzales Rubio',
+            'rol_id'=>'2',
+
+
+        ]);
        
     }
 }

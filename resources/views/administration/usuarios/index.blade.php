@@ -34,7 +34,7 @@
                                     <th>Titulo</th>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
-                                    <th>Dirección</th>
+                                    <th>Dirección Domiciliaria</th>
                                     <th>Email</th>
                                     <th>Acción</th>
                                 </tr>

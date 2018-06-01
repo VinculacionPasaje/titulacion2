@@ -14,6 +14,14 @@ use App\Calendario;
 
      Route::get('/', 'FrontendController@index');
 
+     //rutas para los docentes
+     Route::get('docente', 'FrontendController@docente');
+     Route::get('docente/MiPerfil', 'FrontendController@mi_perfil')->name('docente.mi_perfil');
+     Route::get('docente/materias', 'FrontendController@materias')->name('docente.materias');
+     Route::get('docente/asistencias', 'FrontendController@asistencias')->name('docente.asistencias');
+      Route::resource('docente/editarPerfil','EditarPerfilController');
+      
+
 
    // Authentication Routes...
         Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -33,13 +41,8 @@ use App\Calendario;
 
         //aqui van todos los url del admin
         Route::group(['middleware' => 'admin'], function () {
-            Route::get('administracion','FrontendController@admin');
-        });
-
-        Route::group(['middleware' => 'guest'], function () {
-            Route::get('/','FrontendController@index');
-        });
-
+        
+        Route::get('administracion','FrontendController@admin');
         Route::resource('administracion/roles','RolController');
         Route::resource('administracion/usuarios','UsuarioController');
         Route::resource('administracion/semestres','SemestreController');
@@ -53,7 +56,7 @@ use App\Calendario;
         Route::get('administracion/calendarioAgregar/{id}', 'CalendarioDetalleController@nuevo_calendario');
         Route::resource('administracion/reportes', 'ReporteController');
         Route::get('administracion/generar_reporte', 'ReporteController@pdf')->name('asistencia.pdf');
-        //comentarios Alimentacion
+        
         Route::post('administracion/calendarioAgregar/{id}', ['uses' => 'CalendarioDetalleController@store', 'as'=> 'calendarioAgregar.store']);
 
 
@@ -64,5 +67,22 @@ use App\Calendario;
             $calendarios->save();
             return redirect('administracion/calendarios');
             });
+
+
+
+
+
+
+
+        });
+
+
+        //Si no esta logueado lo mande al Login
+
+        Route::group(['middleware' => 'guest'], function () {
+            Route::get('/','FrontendController@index');
+        });
+
+      
 
 
