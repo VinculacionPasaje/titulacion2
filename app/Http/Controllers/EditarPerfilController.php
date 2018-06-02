@@ -8,6 +8,9 @@ use App\Http\Requests\UsuarioEditRequest2;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Redirect;
 
+use App\TADLista\Nodo;
+use App\TADLista\ListaEnlazada;
+
 
 use App\Rol;
 

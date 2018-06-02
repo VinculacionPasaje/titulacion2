@@ -9,6 +9,9 @@ use App\Calendario;
 use App\Asignatura;
 use App\AsignaturaCalendario;
 use App\Http\Requests\AsignaturaCalendarioRequest2;
+use App\TADLista\Nodo;
+use App\TADLista\ListaEnlazada;
+use App\TADPila\Pila;
 
 class CalendarioDetalleController extends Controller
 {
@@ -150,6 +153,16 @@ class CalendarioDetalleController extends Controller
       
 
         
+    }
+
+    public function apilarCalendario($elemento){
+        apilar($elemento);
+
+    }
+
+    public function desapilarCalendario($elemento){
+        desapilar($elemento);
+
     }
 
 

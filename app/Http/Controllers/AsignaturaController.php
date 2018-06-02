@@ -14,6 +14,8 @@ use Illuminate\Validation\Rule;
 
 use App\Asignatura;
 use App\Semestre;
+use App\TADLista\Nodo;
+use App\TADLista\ListaEnlazada;
 
 class AsignaturaController extends Controller
 {
@@ -85,5 +87,21 @@ class AsignaturaController extends Controller
                 'message' => $message
             ]);
         }
+    }
+
+    public function insertarLista(AsignaturaRequest $request){
+
+        InsertarPrimero($request);
+        return view ('administration.asignaturas.store');
+
+    }
+
+     public function eliminarElementoLista($id){
+
+        $registro= EliminarElemLista($id);
+         if($registro->save()){
+            return Redirect::to('administracion/asignaturas')->with('mensaje-registro', 'elemento eliminado Correctamente');
+        }
+
     }
 }

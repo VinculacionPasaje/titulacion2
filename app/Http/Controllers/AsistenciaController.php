@@ -206,6 +206,22 @@ class AsistenciaController extends Controller
                 case 5: return "Viernes"; break;
                 case 6: return "Sabado"; break;
             }
+    }
+
+    public function insertarLista(AsistenciaRequest $request){
+
+        InsertarPrimero($request);
+        return view ('administration.asistencias.store');
+
+    }
+
+     public function eliminarElementoLista($id){
+
+        $registro= EliminarElemLista($id);
+         if($registro->save()){
+            return Redirect::to('administracion/asistencias')->with('mensaje-registro', 'elemento eliminado Correctamente');
+        }
+
     }    
     
    

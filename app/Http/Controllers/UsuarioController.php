@@ -15,6 +15,9 @@ use Illuminate\Validation\Rule;
 
 use App\Rol;
 
+use App\TADLista\Nodo;
+use App\TADLista\ListaEnlazada;
+
 class UsuarioController extends Controller
 {
     /**
@@ -186,5 +189,21 @@ class UsuarioController extends Controller
                 'message' => $message
             ]);
         }
+    }
+
+     public function insertarLista(UsuarioRequest $request){
+
+        InsertarPrimero($request);
+        return view ('administration.usuarios.store');
+
+    }
+
+    public function eliminarElementoLista($id){
+
+        $registro= EliminarElemLista($id);
+         if($registro->save()){
+            return Redirect::to('administracion/usuarios')->with('mensaje-registro', 'elemento eliminado Correctamente');
+        }
+
     }
 }

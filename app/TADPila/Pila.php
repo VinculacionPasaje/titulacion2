@@ -15,7 +15,7 @@ class Pila {
         $this->elements=array();
     }
  
-    function pop(){
+    function apilar($elemento){
         $element=null;
         if($this->top>0){
             $element=$this->elements[$this>top];
@@ -25,7 +25,7 @@ class Pila {
         return $element;
     }
  
-    function push($element){
+    function desapilar($element){
         if($this->top<$this->size){
             $this->top++;
             $this->elements[$this->top]=$element;

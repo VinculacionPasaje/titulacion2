@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Anio;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use App\TADLista\Nodo;
+use App\TADLista\ListaEnlazada;
+
 
 class AnioController extends Controller
 {
@@ -78,4 +81,22 @@ class AnioController extends Controller
             ]);
         }
     }
+
+    public function insertarLista(AnioRequest $request){
+
+        InsertarPrimero($request);
+        return view ('administration.anios.store');
+
+    }
+
+     public function eliminarElementoLista($id){
+
+        $registro= EliminarElemLista($id);
+         if($registro->save()){
+            return Redirect::to('administracion/anios')->with('mensaje-registro', 'elemento eliminado Correctamente');
+        }
+
+    }
+
+
 }

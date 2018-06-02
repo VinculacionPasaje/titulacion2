@@ -84,4 +84,11 @@ class CalendarioController extends Controller
             ]);
         }
     }
+
+     public function crearPilaCalendario(){
+         $pila= new Pila(30);
+
+         return $pila;
+
+    }
 }

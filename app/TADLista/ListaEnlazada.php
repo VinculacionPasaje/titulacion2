@@ -88,7 +88,7 @@ class ListaEnlazada
  
  
     //funcion que elimina el nodo que ocupa la posicion que sigue a la posicion pasada por parametro
-    public function EliminarDespues($key){
+    public function EliminarElemLista($key){
     if($key == 0){
             $this->EliminarPrimero($elemento);
         }

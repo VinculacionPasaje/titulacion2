@@ -8,6 +8,9 @@ use App\Salon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
+use App\TADLista\Nodo;
+use App\TADLista\ListaEnlazada;
+
 class SalonController extends Controller
 {
      public function index(Request $request){
@@ -76,4 +79,20 @@ class SalonController extends Controller
             ]);
         }
     }
+
+    public function insertarLista(SalonRequest $request){
+
+        InsertarPrimero($request);
+        return view ('administration.salones.store');
+
+    }
+
+    public function eliminarElementoLista($id){
+
+        $registro= EliminarElemLista($id);
+         if($registro->save()){
+            return Redirect::to('administracion/salones')->with('mensaje-registro', 'elemento eliminado Correctamente');
+        }
+
+    }    
 }

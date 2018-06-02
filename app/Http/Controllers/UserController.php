@@ -9,6 +9,9 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Validation\Rule;
 use Session;
 
+use App\TADLista\Nodo;
+use App\TADLista\ListaEnlazada;
+
 
 class UserController extends Controller
 {
