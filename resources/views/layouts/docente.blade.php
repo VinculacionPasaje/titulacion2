@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{url('administration/css/font-awesome.min.css')}}">
     <!-- CSS Animate -->
    <link rel="stylesheet" href="{{url('administration/css/animate.css')}}">
+   <link rel="stylesheet" href="{{url('administration/css/ionicons.min.css')}}">
     <!-- Custom styles for this theme -->
     <link rel="stylesheet" href="{{url('administration/css/main.css')}}">
 

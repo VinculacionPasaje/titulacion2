@@ -24,6 +24,7 @@
    <link rel="stylesheet" href="{{url('administration/css/animate.css')}}">
     <!-- Custom styles for this theme -->
     <link rel="stylesheet" href="{{url('administration/css/main.css')}}">
+    <link rel="stylesheet" href="{{url('administration/css/ionicons.min.css')}}">
 
     <link rel="stylesheet" href="{{url('administration/dist/css/sweetalert.css')}}">
     <link rel="stylesheet" href="{{url('administration/dist/css/alertify.css')}}">

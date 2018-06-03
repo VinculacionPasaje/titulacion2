@@ -19,6 +19,13 @@ class RolTableSeeder extends Seeder
 
         ]);
 
+         Rol::create([
+            'rol'=>'Docente',
+            'description'=>'rol para el usuario docente',
+            'state'=>'1',
+
+        ]);
+
          
     }
 }
