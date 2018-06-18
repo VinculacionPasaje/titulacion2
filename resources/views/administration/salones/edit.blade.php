@@ -2,7 +2,7 @@
 @section('title')
     <section class="content-header">
         <h1>
-            Salón de clases
+            Laboratorios
            
         </h1>
        
@@ -35,7 +35,7 @@
             {{Form::model($salon, ['route' => ['salones.update',$salon->id],'method'=>'PUT' ])}}
                 <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
                        <div class="form-group">
-                            {!! Form::label('Nombre del Laboratorio o salón de clases') !!}
+                            {!! Form::label('Nombre del Laboratorio') !!}
                             {!! Form::text('salon_clase',null,['placeholder'=>'Ingrese el laboratorio','class'=>'form-control']) !!}
                         </div>
 

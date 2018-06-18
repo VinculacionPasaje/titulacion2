@@ -6,8 +6,11 @@
     </section>
 @endsection
 @section('contenido')
-    @if (session('mensaje-registro'))
+     @if (session('mensaje-registro'))
         @include('mensajes.msj_correcto')
+    @endif
+     @if (session('mensaje-error'))
+        @include('mensajes.msj_rechazado')
     @endif
     @if(!$errors->isEmpty())
         <div class="alert alert-danger">
@@ -33,15 +36,15 @@
 
                          <div class="form-group">
                             {!! Form::label('Descripción') !!}
-                            {!! Form::text('descripcion',null,['placeholder'=>'Ingrese una descripción','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
+                            {!! Form::text('descripcion',null,['placeholder'=>'Ingrese una descripción','class'=>'form-control']) !!}
                         </div>
 
                         <div class="row" ><!--Inicio de row -->
                             <div class="col-md-4 col-xs-12">
                                      <div class="form-group">
-                                        <label>Salón de clases</label>
+                                        <label>Laboratorio:</label>
                                         <select class="form-control select2" name="salon_id" id="salon_id" style="width: 100%;" >
-                                            <option value="" disabled selected>Seleccione el salón de clase</option>
+                                            <option value="" disabled selected>Seleccione el laboratorio</option>
                                             @foreach($salones as $salon)
                                                 <option value="{{$salon->id}}" >  {{ $salon->salon_clase }} </option>
                                             @endforeach

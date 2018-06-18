@@ -54,8 +54,8 @@
                                     <tr data-id="{{$calendario->id}}">
                                         <td class="sorting_1">{{$calendario->id}}</td>
                                         <td>{{$calendario->dia_semana}}</td>
-                                          <td>{{$calendario->asignatura->asignatura}}</td>
-                                           <td>{{$calendario->asignatura->semestre->semestre}} {{$calendario->asignatura->semestre->paralelo}}</td>
+                                          <td>{{$calendario->asignatura_semestre->asignatura->asignatura}}</td>
+                                           <td>{{$calendario->asignatura_semestre->semestre->semestre}} {{$calendario->asignatura_semestre->semestre->paralelo}}</td>
                                            <td>{{$calendario->hora_inicio}} - {{$calendario->hora_fin}}</td>
                                         <td>{{$calendario->calendario->salon->salon_clase}}</td>
                                       

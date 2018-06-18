@@ -16,7 +16,7 @@ class AsignaturaCalendario extends Model
         'hora_fin',
         'state',
         'calendario_id',
-        'asignatura_id',
+        'asignatura_semestre_id',
 
     ];
 
@@ -24,8 +24,8 @@ class AsignaturaCalendario extends Model
         return $this->belongsTo(Calendario::class,'calendario_id','id');
     }
     
-    public function asignatura(){
-    return $this->belongsTo(Asignatura::class,'asignatura_id','id');
+    public function asignatura_semestre(){
+    return $this->belongsTo(AsignaturaSemestre::class,'asignatura_semestre_id','id');
     }
 
       public function asistencia(){

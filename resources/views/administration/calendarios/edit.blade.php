@@ -47,9 +47,9 @@
                     <div class="row" ><!--Inicio de row -->
                             <div class="col-md-4 col-xs-12">
                                      <div class="form-group">
-                                                <label>Salón Clases</label>
+                                                <label>Laboratorio:</label>
                                                 <select class="form-control" name="salon_id" id="salon_id" style="width: 100%;" >
-                                                    <option value="" disabled selected>Salón de clase</option>
+                                                    <option value="" disabled selected>Laboratorio</option>
 
                                                         @foreach($salones as $salon)
                                                                 @if($salon->id == $calendario->salon->id)

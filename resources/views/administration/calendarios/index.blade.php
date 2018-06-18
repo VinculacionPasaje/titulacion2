@@ -33,7 +33,9 @@
                                         <div class="col-md-4">
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title" style="text-align:  center;font-weight: bold;">{{$calendario->titulo}}</h3>
+                                                    <div style="padding-right: 20px;"> 
+                                                      <h3 class="panel-title" style="text-align:  center;font-weight: bold;">{{$calendario->titulo}}</h3>
+                                                    </div>
                                                     <div class="actions pull-right">
                                                         <i class="fa fa-chevron-down"></i>
                                                         
@@ -56,7 +58,7 @@
                                                            
                                                             <tr>
 
-                                                                <th>Salón Clase:</th>
+                                                                <th>Laboratorio:</th>
 
                                                                 <td>{{$calendario->salon->salon_clase}}</td>
 

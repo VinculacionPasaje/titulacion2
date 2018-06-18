@@ -15,20 +15,17 @@ class Asignatura extends Model
         'descripcion',
         'state',
         'user_id',
-        'semestre_id',
-
+      
     ];
 
     public function usuario(){
         return $this->belongsTo(User::class,'user_id','id');
     }
     
-    public function semestre(){
-    return $this->belongsTo(Semestre::class,'semestre_id','id');
+        public function semestres(){
+         return $this->belongsToMany(Semestre::class);
     }
 
-     public function asignatura_calendario(){
-        return $this->hasMany(AsignaturaCalendario::class);
-    }
+  
 
 }

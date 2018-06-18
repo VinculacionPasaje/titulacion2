@@ -35,10 +35,14 @@
 </head>
 
 <body style="background: white;">
+
+<!--
       <div style="text-align: center;" class="col-xs-12">
       <img style="padding-right: 15px" src="{{url('fotos/'.'ut-min.png')}}" class="user-image" alt="User Image">
        <img style="padding-right: 15px" src="{{url('fotos/'.'sis-min.png')}}" class="user-image" alt="User Image">
        </div>
+
+       -->
 
       <p style="text-align: center; font-size: 15px; color: black;">UNIVERSIDAD TÉCNICA DE MACHALA</p>
       <p style="text-align: center;  font-size: 15px; color: black;">UNIDAD ACADÉMICA DE INGENIERÍA CIVIL</p>
@@ -82,10 +86,10 @@
                                         <td style="color: black;">{{$asistencia->asignatura_calendario->hora_inicio}} - {{$asistencia->asignatura_calendario->hora_fin}}</td>
                                        
                                          <td style="color: black;">{{$asistencia->asignatura_calendario->dia_semana}}</td>
-                                         <td style="color: black;">{{$asistencia->asignatura_calendario->asignatura->asignatura}}</td>
-                                          <td style="color: black;">{{$asistencia->asignatura_calendario->asignatura->usuario->abreviatura .' '. $asistencia->asignatura_calendario->asignatura->usuario->name  .' '. $asistencia->asignatura_calendario->asignatura->usuario->last_name}}</td>
+                                         <td style="color: black;">{{$asistencia->asignatura_calendario->asignatura_semestre->asignatura->asignatura}}</td>
+                                          <td style="color: black;">{{$asistencia->asignatura_calendario->asignatura_semestre->asignatura->usuario->abreviatura .' '. $asistencia->asignatura_calendario->asignatura_semestre->asignatura->usuario->name  .' '. $asistencia->asignatura_calendario->asignatura_semestre->asignatura->usuario->last_name}}</td>
  
-                                        <td style="color: black;">{{$asistencia->asignatura_calendario->asignatura->semestre->semestre .' '.$asistencia->asignatura_calendario->asignatura->semestre->paralelo }}</td>
+                                        <td style="color: black;">{{$asistencia->asignatura_calendario->asignatura_semestre->semestre->semestre .' '.$asistencia->asignatura_calendario->asignatura_semestre->semestre->paralelo }}</td>
                                        
                                         <td style="color: black;">{{$asistencia->fecha}}</td>
                                         <td style="color: black;">{{$asistencia->hora}}</td>

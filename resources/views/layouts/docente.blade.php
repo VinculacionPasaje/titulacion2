@@ -53,11 +53,12 @@
 </head>
 
 <body>
+<div class="loader"></div>
     <section id="container">
         <header id="header">
             <!--logo start-->
             <div class="brand">
-                <a href="{{url ('administracion')}}" class="logo"><span>Docente</span></a>
+                <a href="{{url ('administracion')}} " onclick="return myFunction();" class="logo"><span>Docente</span></a>
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
@@ -80,7 +81,9 @@
                             <li>
 
                               <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
+                                           onclick="
+                                                    myFunction();
+                                                    event.preventDefault();
                                                     document.getElementById('logout-form').submit();"
                                                     class="btn btn-default btn-flat"><i class="fa fa-power-off"></i>
                                            Salir
@@ -104,13 +107,13 @@
             <div id="leftside-navigation" class="nano">
                 <ul class="nano-content">
                     <li class="active">
-                        <a href="{{url ('docente')}}"><i class="fa fa-dashboard"></i><span>INICIO</span></a>
+                        <a href="{{url ('docente')}}" onclick="return myFunction();"><i class="fa fa-dashboard"></i><span>INICIO</span></a>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-users"></i><span>MI PERFIL</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('docente.mi_perfil')}}"><i class="fa fa-list-ul"></i>Ver perfil</a></li>
+                             <li><a href="{{route('docente.mi_perfil')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Ver perfil</a></li>
                        
                               
                         </ul>
@@ -119,7 +122,7 @@
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-calendar"></i><span>CALENDARIO</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('docente.materias')}}"><i class="fa fa-list-ul"></i>Ver Calendario</a></li>
+                             <li><a href="{{route('docente.materias')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Ver Calendario</a></li>
                        
                               
                         </ul>
@@ -128,7 +131,7 @@
                      <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>ASISTENCIAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('docente.asistencias')}}"><i class="fa fa-list-ul"></i>Ver asistencias</a></li>
+                             <li><a href="{{route('docente.asistencias')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Ver asistencias</a></li>
                        
                              
                         </ul>
@@ -221,6 +224,21 @@
             },3000);
         });
     </script>
+
+     <script type="text/javascript">
+        $(window).load(function() {
+            $(".loader").fadeOut("slow");
+        });
+
+         function myFunction() {
+                $(".loader").show();
+           
+            }
+
+
+        </script>
+
+        
 
  
 

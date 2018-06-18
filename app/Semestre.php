@@ -16,7 +16,8 @@ class Semestre extends Model
      'state',
  ];
 
-   public function asignatura(){
-        return $this->hasMany(Asignatura::class);
+   public function asignaturas(){
+        return $this->belongsToMany(Asignatura::class);
+
     }
 }

@@ -57,11 +57,12 @@
                                     <tr data-id="{{$calendario->id}}">
                                         <td class="sorting_1">{{$calendario->id}}</td>
                                         <td>{{$calendario->dia_semana}}</td>
-                                          <td>{{$calendario->asignatura->asignatura}}</td>
+                                           <td>{{$calendario->asignatura_semestre->asignatura->asignatura}}</td>
+                                        
                                          <td>{{$calendario->hora_inicio}}</td>
                                           <td>{{$calendario->hora_fin}}</td>
-                                          <td>{{$calendario->asignatura->usuario->abreviatura .' '. $calendario->asignatura->usuario->name .' '. $calendario->asignatura->usuario->last_name }}</td>
-                                           <td>{{$calendario->asignatura->semestre->semestre .' '. $calendario->asignatura->semestre->paralelo}}</td>
+                                            <td>{{$calendario->asignatura_semestre->asignatura->usuario->abreviatura .' '. $calendario->asignatura_semestre->asignatura->usuario->name  .' '. $calendario->asignatura_semestre->asignatura->usuario->last_name}}</td>
+                                              <td>{{$calendario->asignatura_semestre->semestre->semestre}} {{$calendario->asignatura_semestre->semestre->paralelo}}</td>
                                         <td>{{$calendario->calendario->titulo}}</td>
                                       
                                         

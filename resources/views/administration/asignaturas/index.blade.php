@@ -44,13 +44,25 @@
                                 </thead>
                                 <tbody>
                                 @foreach($asignaturas as $asignatura)
-                                 @if($asignatura->state !=0)
+
+                                 
+
+                                    @if($asignatura->state !=0)
                                     <tr data-id="{{$asignatura->id}}">
                                         <td class="sorting_1">{{$asignatura->id}}</td>
                                         <td>{{$asignatura->asignatura}}</td>
-                                         <td>{{$asignatura->descripcion}}</td>
+                                        <td>{{$asignatura->descripcion}}</td>
                                         <td>{{$asignatura->usuario->abreviatura .' '. $asignatura->usuario->name  .' '. $asignatura->usuario->last_name}}</td>
-                                        <td>{{$asignatura->semestre->semestre .' '. $asignatura->semestre->paralelo}}</td>
+                                        <td>
+
+                                         @foreach($asignatura->semestres as $semestre)
+                                        
+                                        
+                                        {{$semestre->semestre .' '. $semestre->paralelo}},
+
+                                         @endforeach
+                                        
+                                        </td>
                                         <td>
                                             {!!link_to_route('asignaturas.edit', $title = 'Editar', $parameters = $asignatura->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
                                             <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
@@ -59,6 +71,11 @@
 
                                     </tr>
                                     @endif
+
+
+                                 
+
+           
                                 @endforeach
                                 </tbody>
                             </table>

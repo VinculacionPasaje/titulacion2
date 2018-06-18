@@ -13,6 +13,7 @@ use Illuminate\Validation\Rule;
 
 
 use App\Calendario;
+use App\AsignaturaSemestre;
 use App\Asignatura;
 use App\TADLista\Nodo;
 use App\TADLista\ListaEnlazada;
@@ -22,7 +23,7 @@ class AsignaturaCalendarioController extends Controller
       public function index(Request $request){
        
 
-         $asignaturas_calendarios = AsignaturaCalendario::where('state',1)->orderBy('dia_semana')->paginate(6);
+         $asignaturas_calendarios = AsignaturaCalendario::where('state',1)->orderBy('id')->paginate(5);
 
           return view('administration.asignaturas_calendarios.index',compact('asignaturas_calendarios'));
 
@@ -30,7 +31,7 @@ class AsignaturaCalendarioController extends Controller
 
      public function create(){
 
-        $asignaturas= Asignatura::where('state',1)->get();
+        $asignaturas= AsignaturaSemestre::all();
         $calendarios = Calendario::where('state',1)->get();
          
         return view ('administration.asignaturas_calendarios.create',compact('asignaturas','calendarios'));
@@ -44,7 +45,8 @@ class AsignaturaCalendarioController extends Controller
         $dia_de_la_semana= $request['dia_semana'];
         $calendario_id= $request['calendario_id'];
 
-        $asignatura_id= $request['asignatura_id'];
+        $asignatura_id= $request['asignatura_semestre_id'];
+        
 
          $id_calendario= $request['calendario_id'];
          $calendario = Calendario::find($id_calendario);
@@ -62,7 +64,8 @@ class AsignaturaCalendarioController extends Controller
 
       
         foreach($horario_repetido as $item){
-            if($item->asignatura_id==$asignatura_id ){ //materia repetida en el mismo dia y calendario
+            if($item->asignatura_semestre_id==$asignatura_id ){ //materia repetida en el mismo dia y calendario
+               
                  $materia_repetida=true;
             
 
@@ -159,7 +162,7 @@ class AsignaturaCalendarioController extends Controller
 
     public function edit($id){
         $asignatura_calendario = AsignaturaCalendario::find($id);
-        $asignaturas= Asignatura::where('state',1)->get();
+        $asignaturas= AsignaturaSemestre::all();
         $calendarios = Calendario::where('state',1)->get();
      
 
@@ -177,6 +180,8 @@ class AsignaturaCalendarioController extends Controller
 
         $dia_de_la_semana= $request['dia_semana'];
         $calendario_id= $request['calendario_id'];
+
+         $asignatura_id= $request['asignatura_semestre_id'];
 
          
          $calendario = Calendario::find($calendario_id);
@@ -214,7 +219,7 @@ class AsignaturaCalendarioController extends Controller
          }else{
 
 
-            if($calendario->tamanio<=0){
+        if($calendario->tamanio<=0){
 
               return Redirect::to('administracion/asignaturas_calendarios')->with('mensaje-error', 'Este Calendario ya esta lleno');
 
@@ -229,32 +234,141 @@ class AsignaturaCalendarioController extends Controller
 
              }else{
 
+                  
+
                     //Inicio de actualizar tamanio de calendario
                     $calendario2 = AsignaturaCalendario::find($id);
                     $id_calendario= $calendario2->calendario_id;
+                        
 
-                    $asignaturas_calendarios = Calendario::find($id_calendario); //obtengo el calendario con el tamaño actual
-                   
-                    $resta_anterior= (int)$calendario2->hora_fin - (int)$calendario2->hora_inicio;
+                    $asignaturas_calendarios = Calendario::find($id_calendario); //obtengo el calendario viejo
                   
-                
-                    $asignaturas_calendarios->tamanio= $asignaturas_calendarios->tamanio+$resta_anterior; 
+                    $asignaturas_calendarios2 = Calendario::find($calendario_id); //obtengo el calendario nuevo
+                  
 
-                    $suma= (int)$request->hora_fin - (int)$request->hora_inicio; // obtengo las nuevas horas del request  
+                     if($calendario_id==$calendario2->calendario_id){
+                        
 
-                    $asignaturas_calendarios->tamanio= $asignaturas_calendarios->tamanio - $suma;
-                    $asignaturas_calendarios->save();
-                    //fin de actualizar tamanio de calendario
+                            //es el mismo calendario, entonces le resto las horas al mismo calendario 
+
+                          
+                        
+                            $resta_anterior= (int)$calendario2->hora_fin - (int)$calendario2->hora_inicio;
+                            
+                        
+                        
+                            $asignaturas_calendarios->tamanio= $asignaturas_calendarios->tamanio+$resta_anterior; 
+                        
+
+                            $suma= (int)$request->hora_fin - (int)$request->hora_inicio; // obtengo las nuevas horas del request  
+
+                            $asignaturas_calendarios->tamanio= $asignaturas_calendarios->tamanio - $suma;
+
+                            $tamanio_final= $asignaturas_calendarios->tamanio;
+                        
+                        
+                            $asignaturas_calendarios->fill([
+                                
+
+                            'tamanio' =>  $tamanio_final,
+                        
+                        
+                            ]);
+
+                            $asignaturas_calendarios->save();
+                    
+                            //fin de actualizar tamanio de calendario
+
+                        
+
+                            
+                            
+                            $calendario2->fill($request->all());
+
+                                if($calendario2->save()){
+                                    return Redirect::to('administracion/asignaturas_calendarios')->with('mensaje-registro', 'Registro Actualizado Correctamente');
+                                }
+
+
+                     }else{
+                            //es otro calendario, entonces le sumo las horas al antiguo calendario y le resto las horas al nuevo calendario
+
+
+                            $resta_anterior= (int)$calendario2->hora_fin - (int)$calendario2->hora_inicio;
+                            
+                        
+                        
+                            $asignaturas_calendarios->tamanio= $asignaturas_calendarios->tamanio+$resta_anterior; 
+
+                            $tamanio_final= $asignaturas_calendarios->tamanio;
+                        
+
+                           
+                          
+                        
+                            $asignaturas_calendarios->fill([
+                                
+
+                            'tamanio' =>  $tamanio_final,
+                        
+                        
+                            ]);
+
+                            $asignaturas_calendarios->save();
+
+
+                            $asignaturas_calendarios2->tamanio= $asignaturas_calendarios2->tamanio-$resta_anterior; 
+                            $tamanio_final2= $asignaturas_calendarios2->tamanio;
+
+                            if($tamanio_final2<=0){
+
+                                    return Redirect::to('administracion/asignaturas_calendarios')->with('mensaje-error', 'Este Calendario ya esta lleno');
+
+
+                                }else{
+
+                                    if($tamanio_final2<$hora){
+
+                                        return Redirect::to('administracion/asignaturas_calendarios/'.$id.'/edit')->with('mensaje-error', 'Horas insuficientes');
+                                        
+                                        // return Redirect::to('administracion/asignaturas_calendarios/create')->with('mensaje-error', 'Horas insuficientes');
+
+                                    }else{
+
+                                             $asignaturas_calendarios2->fill([
+                                
+
+                                                'tamanio' =>  $tamanio_final2,
+                                            
+                                            
+                                                ]);
+
+                                                $asignaturas_calendarios2->save();
+
+                                                $calendario2->fill($request->all());
+
+                                                if($calendario2->save()){
+                                                    return Redirect::to('administracion/asignaturas_calendarios')->with('mensaje-registro', 'Registro Actualizado Correctamente');
+                                                }
+
+
+
+                                    }
+                                }
+                            
+
+
+
+
+                           
+
+
+
+
+
+                     }
 
                    
-
-                     
-                    
-                     $calendario2->fill($request->all());
-
-                        if($calendario2->save()){
-                            return Redirect::to('administracion/asignaturas_calendarios')->with('mensaje-registro', 'Registro Actualizado Correctamente');
-                        }
 
 
 
@@ -278,20 +392,23 @@ class AsignaturaCalendarioController extends Controller
     
     public function destroy($id, Request $request)
     {
-        $asignaturas_calendarios = AsignaturaCalendario::find($id);
-        $suma= (int)$asignaturas_calendarios->hora_fin - (int)$asignaturas_calendarios->hora_inicio;
+           $asignaturas_calendarios = AsignaturaCalendario::find($id);
+            $suma= (int)$asignaturas_calendarios->hora_fin - (int)$asignaturas_calendarios->hora_inicio;
+            
 
 
-        $id_calendario= $asignaturas_calendarios->calendario_id;
-        $calendario = Calendario::find($id_calendario);
-        $calendario->tamanio= $calendario->tamanio+$suma;
-        $calendario->save();
+            $id_calendario= $asignaturas_calendarios->calendario_id;
+            $calendario = Calendario::find($id_calendario);
+            $calendario->tamanio= $calendario->tamanio+$suma;
+            $calendario->save();
 
-        $asignaturas_calendarios->state = 0;
-        $asignaturas_calendarios->save();
+            $asignaturas_calendarios->state = 0;
+            $asignaturas_calendarios->save();
 
         $message = "Eliminado Correctamente";
         if ($request->ajax()) {
+
+           
             return response()->json([
                 'id'      => $asignaturas_calendarios->id,
                 'message' => $message

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Calendario;
 use App\Asignatura;
 use App\AsignaturaCalendario;
+use App\AsignaturaSemestre;
 use App\Http\Requests\AsignaturaCalendarioRequest2;
 use App\TADLista\Nodo;
 use App\TADLista\ListaEnlazada;
@@ -18,7 +19,7 @@ class CalendarioDetalleController extends Controller
     public function calendario($id){
         
         $calendario = Calendario::find($id);
-        $asignaturas_calendarios = AsignaturaCalendario::where('calendario_id',$calendario->id)->where('state',1)->orderBy('dia_semana')->paginate(6);
+        $asignaturas_calendarios = AsignaturaCalendario::where('calendario_id',$calendario->id)->where('state',1)->orderBy('id')->paginate(4);
         return view('administration.calendarios.listado',compact('calendario', 'asignaturas_calendarios'));
      
     }
@@ -26,7 +27,7 @@ class CalendarioDetalleController extends Controller
     public function nuevo_calendario($id){
         
         $calendario = Calendario::find($id);
-        $asignaturas= Asignatura::where('state',1)->get();
+        $asignaturas= AsignaturaSemestre::all();
         
         return view('administration.calendarios.nuevo',compact('calendario', 'asignaturas'));
      
@@ -40,7 +41,8 @@ class CalendarioDetalleController extends Controller
         $dia_de_la_semana= $request['dia_semana'];
         $calendario_id= $id;
 
-        $asignatura_id= $request['asignatura_id'];
+       $asignatura_id= $request['asignatura_semestre_id'];
+     
 
          $id_calendario=$id;
          $calendario = Calendario::find($id_calendario);
@@ -58,7 +60,7 @@ class CalendarioDetalleController extends Controller
 
       
         foreach($horario_repetido as $item){
-            if($item->asignatura_id==$asignatura_id ){ //materia repetida en el mismo dia y calendario
+            if($item->asignatura_semestre_id==$asignatura_id){ //materia repetida en el mismo dia y calendario
                  $materia_repetida=true;
             
 
@@ -121,7 +123,7 @@ class CalendarioDetalleController extends Controller
                         'hora_inicio' => $request['hora_inicio'],
                         'hora_fin' => $request['hora_fin'],
                         'calendario_id' => $calendario_id,
-                        'asignatura_id' => $request['asignatura_id'],
+                        'asignatura_semestre_id' => $request['asignatura_semestre_id'],
                        
                     
                     ]);

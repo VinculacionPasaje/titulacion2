@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title')
     <section class="content-header">
-        <h1>Salones de clases</h1>
+        <h1>Laboratorios</h1>
       
     </section>
 @endsection
@@ -21,13 +21,13 @@
     @endif
     <div class="box box-primary">
         <div class="box-header">
-            <h3 class="box-title">Nuevo Salon de Clases</h3>
+            <h3 class="box-title">Nuevo Laboratorio</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
             {!! Form::open(['route' => 'salones.store','method'=>'POST']) !!}
                 <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
                         <div class="form-group">
-                            {!! Form::label('Nombre del Laboratorio o salón de clases') !!}
+                            {!! Form::label('Nombre del Laboratorio') !!}
                             {!! Form::text('salon_clase',null,['placeholder'=>'Ingrese el laboratorio','class'=>'form-control']) !!}
                         </div>
 

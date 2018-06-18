@@ -17,7 +17,7 @@
             <div class="box">
                 <div class="box-header">
                     <div class= "col-xs-6 col-md-6" aling="center">
-                        <h3 class="box-title">Salones de Clases Registrados</h3>
+                        <h3 class="box-title">Laboratorios Registrados</h3>
 
                     </div>
                     
@@ -35,7 +35,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Salon Clases</th>
+                                    <th>Laboratorio</th>
                                     <th>Ubicación</th>
                                     <th>Descripción</th>
                                     <th>Acción</th>
@@ -65,7 +65,7 @@
                     </div>
         
                 @else
-                    <br/><div class='rechazado'><label style='color:#FA206A'>...No se ha encontrado ningún salón de clases...</label>  </div>
+                    <br/><div class='rechazado'><label style='color:#FA206A'>...No se ha encontrado ningún laboratorio...</label>  </div>
                 @endif
                 
             </div>

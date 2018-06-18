@@ -83,11 +83,4 @@
   'fontawesome' => array(
     'normal' => $fontDir . '\5d6f0b7ba5a3111761a9bfc5e2bd851f',
   ),
-  'source sans pro' => array(
-    'italic' => $fontDir . '\095a3415f1df4fba8a549662ad1eea78',
-    'normal' => $fontDir . '\79dc3af4c874eac8350656833bab2e65',
-  ),
-  'open sans' => array(
-    'normal' => $fontDir . '\b2f3ec923bb89229d1320b5abf4b8a49',
-  ),
 ) ?>

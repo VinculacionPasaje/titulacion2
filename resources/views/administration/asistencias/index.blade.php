@@ -97,6 +97,7 @@
                                     <th>Fecha</th>
                                     <th>Hora Asistencia</th>
                                     <th>Firma</th>
+                                  
                                     <th>Justificación</th>
                                     <th>Acción</th>
                                 </tr>
@@ -108,14 +109,18 @@
                                         <td>{{$asistencia->asignatura_calendario->hora_inicio}} - {{$asistencia->asignatura_calendario->hora_fin}}</td>
                                        
                                          <td>{{$asistencia->asignatura_calendario->dia_semana}}</td>
-                                         <td>{{$asistencia->asignatura_calendario->asignatura->asignatura}}</td>
-                                          <td>{{$asistencia->asignatura_calendario->asignatura->usuario->abreviatura .' '. $asistencia->asignatura_calendario->asignatura->usuario->name  .' '. $asistencia->asignatura_calendario->asignatura->usuario->last_name}}</td>
+
+                                         <td>{{$asistencia->asignatura_calendario->asignatura_semestre->asignatura->asignatura}}</td>
+                                          <td>{{$asistencia->asignatura_calendario->asignatura_semestre->asignatura->usuario->abreviatura .' '. $asistencia->asignatura_calendario->asignatura_semestre->asignatura->usuario->name  .' '. $asistencia->asignatura_calendario->asignatura_semestre->asignatura->usuario->last_name}}</td>
+                                          
  
-                                        <td>{{$asistencia->asignatura_calendario->asignatura->semestre->semestre .' '.$asistencia->asignatura_calendario->asignatura->semestre->paralelo }}</td>
+                                        <td>{{$asistencia->asignatura_calendario->asignatura_semestre->semestre->semestre .' '.$asistencia->asignatura_calendario->asignatura_semestre->semestre->paralelo }}</td>
                                        
                                         <td>{{$asistencia->fecha}}</td>
                                         <td>{{$asistencia->hora}}</td>
                                          <td>{{$asistencia->firma}}</td>
+                                      
+
                                           
                                          @if($asistencia->justificacion ==0) <!--no justifico falta -->
                                                <td>No</td>

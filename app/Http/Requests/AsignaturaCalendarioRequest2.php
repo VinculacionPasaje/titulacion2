@@ -27,7 +27,7 @@ class AsignaturaCalendarioRequest2 extends FormRequest
             'dia_semana'=>'required|max:255',
             'hora_inicio'=>'required',
             'hora_fin'=>'required|after:hora_inicio',
-             'asignatura_id'=>'required',
+             'asignatura_semestre_id'=>'required',
             
 
         ];

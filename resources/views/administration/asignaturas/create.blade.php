@@ -51,15 +51,14 @@
 
                                     <div class="col-md-6 col-xs-12">
 
-                                    <div class="form-group">
-                                        <label>Semestre</label>
-                                        <select class="form-control select2" name="semestre_id" id="semestre_id" style="width: 100%;" >
-                                            <option value="" disabled selected>Seleccione el semestre</option>
-                                            @foreach($semestres as $semestre)
-                                                <option value="{{$semestre->id}}" >  {{ $semestre->semestre .' '.$semestre->paralelo }} </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                        <div class="form-group">
+                                                <label>Semestres</label>
+                                                <select class="form-control select2" multiple="multiple" data-placeholder="Selecione los semestres" name ="semestres[]" style="width: 100%;">
+                                                    @foreach($semestres as $semestre)
+                                                        <option value="{{$semestre->id}}" >  {{ $semestre->semestre.' '.$semestre->paralelo }} </option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
 
 
                                         
@@ -79,5 +78,33 @@
 @section('script')
         <script src="{{url('administration/dist/js/roles/delete.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
+    <script src="{{url('administration/plugins/select2/select2.full.min.js')}}"></script>
+
+      <script>
+        $(function() {
+            $(".select2").select2();
+            $.fn.datepicker.dates['en'] = {
+                days: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+                daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+                daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+                    "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun",
+                    "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+                today: "Hoy",
+                clear: "Clear",
+                titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+                weekStart: 0
+            };
+            $("#datepicker").datepicker({
+                format: 'dd/mm/yyyy',
+                language:'en'
+            })
+            $("#datepicker2").datepicker({
+                format: 'dd/mm/yyyy',
+                language:'en'
+            })
+        });
+    </script>
 
 @endsection

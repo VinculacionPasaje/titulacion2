@@ -19,9 +19,8 @@ class CreateAsignaturasTable extends Migration
             $table->string('descripcion',500);
             $table->char('state',1)->default(1);
             $table->integer('user_id')->unsigned();
-            $table->integer('semestre_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('semestre_id')->references('id')->on('semestres')->onDelete('cascade');
+          
         });
     }
 

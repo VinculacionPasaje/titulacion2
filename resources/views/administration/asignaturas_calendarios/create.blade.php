@@ -54,10 +54,18 @@
                             <div class="col-md-4 col-xs-12">
                                      <div class="form-group">
                                         <label>Asignatura</label>
-                                        <select class="form-control select2" name="asignatura_id" id="asignatura_id" style="width: 100%;" >
+                                        <select class="form-control select2" name="asignatura_semestre_id" id="asignatura_semestre_id" style="width: 100%;" >
                                             <option value="" disabled selected>Seleccione la asignatura</option>
                                             @foreach($asignaturas as $asignatura)
-                                                <option value="{{$asignatura->id}}" >  {{ $asignatura->asignatura }} </option>
+
+                                                
+                                                     <option value="{{$asignatura->id}}" >  {{ $asignatura->asignatura->asignatura }} - {{ $asignatura->semestre->semestre }} {{ $asignatura->semestre->paralelo }}  </option>
+                                        
+                                        
+                                                   
+
+                                                  
+                                                
                                             @endforeach
                                         </select>
                                     </div>

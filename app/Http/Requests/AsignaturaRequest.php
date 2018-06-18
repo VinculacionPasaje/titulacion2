@@ -27,7 +27,7 @@ class AsignaturaRequest extends FormRequest
             'asignatura'=>'required|max:255',
             'descripcion'=>'required|max:255',
              'user_id'=>'required',
-              'semestre_id'=>'required',
+            
 
         ];
     }

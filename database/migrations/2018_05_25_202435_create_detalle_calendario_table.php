@@ -20,9 +20,9 @@ class CreateDetalleCalendarioTable extends Migration
             $table->time('hora_fin');
             $table->char('state',1)->default(1);
             $table->integer('calendario_id')->unsigned();
-            $table->integer('asignatura_id')->unsigned();
+            $table->integer('asignatura_semestre_id')->unsigned();
             $table->foreign('calendario_id')->references('id')->on('calendario')->onDelete('cascade');
-            $table->foreign('asignatura_id')->references('id')->on('asignaturas')->onDelete('cascade');
+            $table->foreign('asignatura_semestre_id')->references('id')->on('asignatura_semestre')->onDelete('cascade');
         });
     }
 

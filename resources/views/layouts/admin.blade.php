@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{url('administration/plugins/todo/css/todos.css')}}">
      <link rel="stylesheet" href="{{url('administration/plugins/todo/css/todos.css')}}">
          <link rel="stylesheet" href="{{url('administration/plugins/datepicker/datepicker3.css')}}">
+             <link rel="stylesheet" href="{{url('administration/plugins/select2/select2.min.css')}}">
 
     <!-- Morris  -->
 
@@ -53,11 +54,13 @@
 </head>
 
 <body>
+
+<div class="loader"></div>
     <section id="container">
         <header id="header">
             <!--logo start-->
             <div class="brand">
-                <a href="{{url ('administracion')}}" class="logo"><span>Administración</span></a>
+                <a href="{{url ('administracion')}}" onclick="return myFunction();" class="logo"><span>Administración</span></a>
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
@@ -68,9 +71,7 @@
             <div class="user-nav">
                 <ul>
 
-                    <li class="profile-photo">
-                        <img src="assets/img/avatar.png" alt="" class="img-circle">
-                    </li>
+                   
                     <li class="dropdown settings">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                        Bienvenido  {!! Auth::user()->abreviatura.' '. Auth::user()->name.' '.Auth::user()->last_name !!} <i class="fa fa-angle-down"></i>
@@ -80,7 +81,9 @@
                             <li>
 
                               <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
+                                           onclick="
+                                                   myFunction();
+                                                    event.preventDefault();
                                                     document.getElementById('logout-form').submit();"
                                                     class="btn btn-default btn-flat"><i class="fa fa-power-off"></i>
                                            Salir
@@ -104,85 +107,85 @@
             <div id="leftside-navigation" class="nano">
                 <ul class="nano-content">
                     <li class="active">
-                        <a href="{{url ('administracion')}}"><i class="fa fa-dashboard"></i><span>INICIO</span></a>
+                        <a href="{{url ('administracion')}}" onclick="return myFunction();"><i class="fa fa-dashboard"></i><span>INICIO</span></a>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-users"></i><span>ROLES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('roles.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('roles.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
-                              <li><a href="{{route('roles.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              <li><a href="{{route('roles.create')}}" onclick="return myFunction();"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-user"></i><span>USUARIOS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('usuarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('usuarios.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
-                              <li><a href="{{route('usuarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              <li><a href="{{route('usuarios.create')}}" onclick="return myFunction();"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
                      <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>SEMESTRES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('semestres.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('semestres.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
-                              <li><a href="{{route('semestres.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              <li><a href="{{route('semestres.create')}}" onclick="return myFunction();"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-briefcase"></i><span>SALON CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-briefcase"></i><span>LABORATORIOS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('salones.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('salones.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
-                              <li><a href="{{route('salones.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              <li><a href="{{route('salones.create')}}" onclick="return myFunction();"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-book"></i><span>ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('asignaturas.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('asignaturas.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
-                              <li><a href="{{route('asignaturas.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              <li><a href="{{route('asignaturas.create')}}" onclick="return myFunction();"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-clock-o"></i><span>AÑOS LECTIVO</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('anios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('anios.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
-                              <li><a href="{{route('anios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              <li><a href="{{route('anios.create')}}"onclick="return myFunction();"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-calendar"></i><span>CALENDARIO CLASES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('calendarios.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
-                              <li><a href="{{route('calendarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              <li><a href="{{route('calendarios.create')}}" onclick="return myFunction();"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-book"></i><span>AGREGAR ASIGNATURAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('asignaturas_calendarios.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('asignaturas_calendarios.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
-                              <li><a href="{{route('asignaturas_calendarios.create')}}"><i class="fa fa-file"></i> Agregar</a></li>
+                              <li><a href="{{route('asignaturas_calendarios.create')}}" onclick="return myFunction();"><i class="fa fa-file"></i> Agregar</a></li>
                         </ul>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-book"></i><span>ASISTENCIAS</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('asistencias.index')}}"><i class="fa fa-list-ul"></i>Listado</a></li>
+                             <li><a href="{{route('asistencias.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Listado</a></li>
                        
                             
                         </ul>
@@ -191,7 +194,7 @@
                      <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-book"></i><span>REPORTES</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                             <li><a href="{{route('reportes.index')}}"><i class="fa fa-list-ul"></i>Generar Reporte</a></li>
+                             <li><a href="{{route('reportes.index')}}" onclick="return myFunction();"><i class="fa fa-list-ul"></i>Generar Reporte</a></li>
                        
                         </ul>
                     </li>
@@ -234,6 +237,8 @@
 
     <script src="{{url('administration/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{url('administration/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+     
+
      <script>
         $(function () {
             $("#example1").DataTable();
@@ -243,7 +248,8 @@
             "searching": true,
             "ordering": false,
             "info": true,
-            "autoWidth": false
+            "autoWidth": false,
+            "bInfo" : false
             });
         });
         </script>
@@ -281,6 +287,19 @@
             },3000);
         });
     </script>
+
+      <script type="text/javascript">
+        $(window).load(function() {
+            $(".loader").fadeOut("slow");
+
+
+        });
+
+         function myFunction() {
+                $(".loader").show();
+           
+            }
+        </script>
 
  
 

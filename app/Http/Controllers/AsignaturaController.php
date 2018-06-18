@@ -14,6 +14,7 @@ use Illuminate\Validation\Rule;
 
 use App\Asignatura;
 use App\Semestre;
+use App\AsignaturaSemestre;
 use App\TADLista\Nodo;
 use App\TADLista\ListaEnlazada;
 
@@ -38,6 +39,13 @@ class AsignaturaController extends Controller
 
     public function store(AsignaturaRequest $request){
         $asignatura =Asignatura::create($request->all());
+        $total_semestres = $request->semestres;
+        foreach($total_semestres as $semestre){
+            AsignaturaSemestre::create([
+                'asignatura_id'=>$asignatura->id,
+                'semestre_id'=>$semestre,
+            ]);
+        }
         if($asignatura->save()){
             return Redirect::to('administracion/asignaturas/create')->with('mensaje-registro', 'Registrado Correctamente');
         }
@@ -65,6 +73,8 @@ class AsignaturaController extends Controller
 
     
         $asignatura->fill($request->all());
+
+        $asignatura->semestres()->sync($request->get('semestres'));
 
         if($asignatura->save()){
             return Redirect::to('administracion/asignaturas')->with('mensaje-registro', 'Registro Actualizado Correctamente');

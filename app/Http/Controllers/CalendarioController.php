@@ -35,10 +35,29 @@ class CalendarioController extends Controller
     }
 
     public function store(CalendarioRequest $request){
-        $calendario =Calendario::create($request->all());
-        if($calendario->save()){
-            return Redirect::to('administracion/calendarios/create')->with('mensaje-registro', 'Registrado Correctamente');
+        $laboratorio= $request['salon_id'];
+        $anio= $request['anio_id'];
+        $hemisemestre= $request['hemisemestres'];
+
+        $repetido= Calendario::where('salon_id',$laboratorio)->where('anio_id',$anio)->where('hemisemestres',$hemisemestre)->where('state',1)->get();
+        
+        if($repetido->count()){ //calendario repetido
+
+         return Redirect::to('administracion/calendarios/create')->with('mensaje-error', 'Ya existe un Calendario con el mismo Laboratorio, Año y Hemisemestre, por favor seleccione otras opciones');
+
+
+        }else{
+
+             $calendario =Calendario::create($request->all());
+            if($calendario->save()){
+                return Redirect::to('administracion/calendarios/create')->with('mensaje-registro', 'Registrado Correctamente');
+            }
+
         }
+        
+
+
+       
     }
 
     public function show ($id){

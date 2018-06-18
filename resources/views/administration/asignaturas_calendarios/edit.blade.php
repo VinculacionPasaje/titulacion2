@@ -48,14 +48,14 @@
                             <div class="col-md-4 col-xs-12">
                                      <div class="form-group">
                                                 <label>Asignatura</label>
-                                                <select class="form-control" name="asignatura_id" id="asignatura_id" style="width: 100%;" >
+                                                <select class="form-control" name="asignatura_semestre_id" id="asignatura_semestre_id" style="width: 100%;" >
                                                     <option value="" disabled selected>Asignatura</option>
 
                                                         @foreach($asignaturas as $asignatura)
-                                                                @if($asignatura->id == $asignatura_calendario->asignatura->id)
-                                                                    <option value="{{$asignatura->id}}" selected>  {{ $asignatura->asignatura }} </option>
+                                                                @if($asignatura->id == $asignatura_calendario->asignatura_semestre->id)
+                                                                    <option value="{{$asignatura->id}}" selected>  {{ $asignatura->asignatura->asignatura }} - {{ $asignatura->semestre->semestre }} {{ $asignatura->semestre->paralelo }} </option>
                                                                 @else
-                                                                    <option value="{{$asignatura->id}}">  {{ $asignatura->asignatura }} </option>
+                                                                    <option value="{{$asignatura->id}}">  {{ $asignatura->asignatura->asignatura }} - {{ $asignatura->semestre->semestre }} {{ $asignatura->semestre->paralelo }} </option>
                                                                 @endif
                                                             @endforeach
                                                 </select>

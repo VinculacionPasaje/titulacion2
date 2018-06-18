@@ -35,7 +35,11 @@
 </head>
 
 <body>
+
+   
     <section id="login-container">
+
+     <div class="loader" style="display:none"></div>
 
       <div class="row" style="margin-left: 25px;margin-right: 25px;">
         
@@ -108,7 +112,7 @@
 
                             <div class="form-group">
                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary btn-block" style="font-weight: bold;">
+                                    <button onclick="myFunction()" type="submit" class="btn btn-primary btn-block" style="font-weight: bold;">
                                                 LOGIN
                                     </button>
                                 </div>
@@ -144,6 +148,20 @@
         ga('send', 'pageview');
 
     </script>
+
+    <script type="text/javascript">
+            $(window).load(function() {
+                    $(".loader").show();
+
+                    $(".loader").fadeOut("slow");
+            });
+
+            function myFunction() {
+                $(".loader").show();
+           
+            }
+       
+        </script>
 </body>
 
 </html>

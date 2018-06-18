@@ -69,6 +69,7 @@ class AnioController extends Controller
     
     public function destroy($id, Request $request)
     {
+       
         $anio = Anio::find($id);
         $anio->state = 0;
         $anio->save();
