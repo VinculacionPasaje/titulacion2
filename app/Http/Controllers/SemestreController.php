@@ -29,7 +29,7 @@ class SemestreController extends Controller
 
     public function store(SemestreRequest $request){
       
-        $semestre_repetido = Semestre::where('semestre',$request['semestre'])->where('paralelo',$request['paralelo'])->get();
+        $semestre_repetido = Semestre::where('semestre',$request['semestre'])->where('paralelo',$request['paralelo'])->where('state',1)->get();
         if($semestre_repetido->count()){
              return Redirect::to('administracion/semestres/create')->with('mensaje-error', 'El semestre y paralelo ya se encuentran registrados');
            

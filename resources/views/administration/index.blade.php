@@ -26,7 +26,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="{{route('usuarios.create')}}" class="small-box-footer">Agregar Usuario <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('usuarios.create')}}" onclick="return myFunction();" class="small-box-footer">Agregar Usuario <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -41,7 +41,7 @@
             <div class="icon">
               <i class="ion ion-bookmark"></i>
             </div>
-            <a href="{{route('asignaturas.create')}}" class="small-box-footer">Agregar Asignaturas <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('asignaturas.create')}}" onclick="return myFunction();" class="small-box-footer">Agregar Asignaturas <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -56,7 +56,7 @@
             <div class="icon">
               <i class="ion ion-calendar"></i>
             </div>
-            <a href="{{route('calendarios.create')}}" class="small-box-footer">Crear Calendario <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('calendarios.create')}}" onclick="return myFunction();" class="small-box-footer">Crear Calendario <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -71,7 +71,7 @@
             <div class="icon">
               <i class="ion ion-clock"></i>
             </div>
-            <a href="{{route('asistencias.index')}}" class="small-box-footer">Ver asistencias <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('asistencias.index')}}"  onclick="return myFunction();" class="small-box-footer">Ver asistencias <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -88,7 +88,7 @@
             <div class="icon">
               <i class="ion ion-briefcase"></i>
             </div>
-            <a href="{{route('salones.create')}}" class="small-box-footer">Crear Salón Clase <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('salones.create')}}" onclick="return myFunction();" class="small-box-footer">Crear Salón Clase <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -106,7 +106,7 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="{{route('reportes.index')}}" class="small-box-footer">Generar Reporte <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('reportes.index')}}" onclick="return myFunction();" class="small-box-footer">Generar Reporte <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

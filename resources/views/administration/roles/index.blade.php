@@ -50,7 +50,9 @@
                                         <td>{{$rol->description}}</td>
                                         <td>
                                             {!!link_to_route('roles.edit', $title = 'Editar', $parameters = $rol->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
+                                            @if($rol->id !=1)
                                             <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
+                                            @endif
 
                                         </td>
 

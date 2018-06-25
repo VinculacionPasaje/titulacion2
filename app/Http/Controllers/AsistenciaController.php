@@ -39,40 +39,11 @@ class AsistenciaController extends Controller
         $calendario_id= $request['calendario_id'];
         $dia_de_la_semana= $this->get_nombre_dia($fecha);
 
-        
-
-    /*
-        $resultados = DB::select( DB::raw(" SELECT * from asignatura_calendario WHERE calendario_id = :id_calendario AND dia_semana = :dia AND id <>(SELECT detalle_calendario_id FROM asistencia WHERE fecha= :fecha_seleccionada)"), array(
-                    'fecha_seleccionada' => $fecha,
-                    'id_calendario' => $calendario_id,
-                    'dia' => $dia_de_la_semana,
-                  
-                    ));
-                   
-
- 
-
-          foreach($resultados as $result){
-            
-                        $registro= new Asistencia;
-                        $registro->firma="No Asistio";
-                        $registro->fecha=$fecha;
-                        $registro->hora=$hora_actual;
-                        $registro->justificacion='0'; //no justificado
-                        $registro->state ='1';
-                        $registro->detalle_calendario_id= $result->id;
-                        $registro->save();
-
-
-        }
-
-      
- */
-      
+           
         
 
 
-        $asistencias= Asistencia::where('fecha',$fecha)->get();
+        $asistencias= Asistencia::where('fecha',$fecha)->where('state',1)->get();
        
         $calendarios= AsignaturaCalendario::where('dia_semana',$dia_de_la_semana)->where('calendario_id',$calendario_id)->where('state',1)->get();
 
@@ -87,7 +58,7 @@ class AsistenciaController extends Controller
                     
                        
                     }else{ //no asistio a su hora de clase
-                        $asistencias2= Asistencia::where('detalle_calendario_id',$calendario->id)->get();
+                        $asistencias2= Asistencia::where('detalle_calendario_id',$calendario->id)->where('state',1)->get();
                         if($asistencias2->count() )
                         {
                             
@@ -125,6 +96,7 @@ class AsistenciaController extends Controller
                         $registro->hora=$hora_actual;
                         $registro->justificacion='0'; //no justificado
                         $registro->state ='1';
+                        $registro->detalle_calendario_id= $calendario->id;
                         $registro->save();
 
                        
@@ -140,17 +112,6 @@ class AsistenciaController extends Controller
         }
         
         
-/*
-
-        $resultados = DB::select( DB::raw("SELECT * FROM asistencia WHERE fecha= :fecha_seleccionada AND detalle_calendario_id = (SELECT id from asignatura_calendario WHERE calendario_id = :id_calendario AND dia_semana = :dia)"), array(
-                    'fecha_seleccionada' => $fecha,
-                    'id_calendario' => $calendario_id,
-                    'dia' => $dia_semana,
-                  
-                    ));
-        dd($resultados);
-
-        */
 
 
   

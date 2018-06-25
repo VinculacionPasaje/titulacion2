@@ -25,7 +25,7 @@
             <div class="icon">
               <i class="ion ion-person"></i>
             </div>
-            <a href="{{route('docente.mi_perfil')}}" class="small-box-footer">Ver mi perfil <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('docente.mi_perfil')}}" onclick="return myFunction();" class="small-box-footer">Ver mi perfil <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -40,7 +40,7 @@
             <div class="icon">
               <i class="ion ion-clock"></i>
             </div>
-            <a href="{{route('docente.asistencias')}}" class="small-box-footer">Ver asistencias <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('docente.asistencias')}}" onclick="return myFunction();" class="small-box-footer">Ver asistencias <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -55,7 +55,7 @@
             <div class="icon">
               <i class="ion ion-calendar"></i>
             </div>
-            <a href="{{route('docente.materias')}}" class="small-box-footer">Ver Calendario <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('docente.materias')}}" onclick="return myFunction();" class="small-box-footer">Ver Calendario <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
        
